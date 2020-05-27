@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Dari.Domain.Entities.Meuble>
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>
+                <div><br>
+                    Recherche : @Html.TextBox("rech")
+                </div>
+            </td>
+            <td> <br> <input type="submit" value="Search" id="submit" /> </td>
+        </tr>
+    </table>
+    <br />
+}
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List of furniture</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<p>
+    @Html.ActionLink("Statistique", "statistique")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Titre)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prix)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateAnn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdClient)
+        </th>
+       @* <th>
+        @Html.DisplayNameFor(model => model.MyCategory)
+    </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Titre)
+        </td>
+        
+        <td>
+            @{string path = "~/Content/" + item.Image;}
+            <img src="@Url.Content(path)" width="100" height="100" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prix)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateAnn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdClient)
+        </td>
+        
+        @*<td>
+        @Html.DisplayFor(modelItem => item.CategoryMeubId)
+    </td>*@
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdMeuble }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdMeuble }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdMeuble })
+        </td>
+    </tr>
+}
+
+</table>

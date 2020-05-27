@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Dari.Domain.Entities.Meuble>
+
+@{
+    ViewBag.Title = "statistique";
+}
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Statistique</title>
+</head>
+<body>
+
+    @{
+
+
+        var Beds = (int)ViewData["countA"];//retrive Data from ViewData or ViewBag
+    }
+
+    @{
+
+
+        var Tables = (int)ViewData["countB"];//retrive Data from ViewData or ViewBag
+    }
+
+    @{
+
+
+        var Decor = (int)ViewData["countC"];//retrive Data from ViewData or ViewBag
+    }
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <div class="card-hover-shadow profile-responsive card-border border-success mb-3 card">
+
+        <canvas id="pie-chart" width="40" height="20"></canvas>
+
+
+        <script>
+
+                                new Chart(document.getElementById("pie-chart"), {
+                                    type: 'pie',
+                                    data: {
+                                        labels: ["Beds", "Tables", "Decor"],
+                                        datasets: [{
+                                            label: "Prfil",
+                                            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#FE0224", "#02fef6", "#02fef6"],
+                                            data: [ @Beds , @Tables , @Decor]
+                                        }]
+                                    },
+                                    options: {
+                                        title: {
+                                            display: true,
+                                            text: 'The Furnitures categories'
+                                        }
+                                    }
+                                });
+
+
+
+        </script>
+
+
+
+    </div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>
