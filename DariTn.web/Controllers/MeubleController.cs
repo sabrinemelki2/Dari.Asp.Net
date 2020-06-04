@@ -13,7 +13,6 @@ namespace DariTn.web.Controllers
 {
     public class MeubleController : Controller
     {
-        
         ICategorieService  serviceCat;
         IMeubleService Service = null;
 
@@ -198,3 +197,4 @@ namespace DariTn.web.Controllers
 
    
 }
+
