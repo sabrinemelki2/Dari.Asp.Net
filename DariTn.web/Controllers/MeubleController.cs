@@ -44,7 +44,7 @@ namespace DariTn.web.Controllers
 
         // POST: Meuble/Create
         [HttpPost]
-        public ActionResult Create(Meuble MVM, HttpPostedFileBase file)
+        public ActionResult Create(Meuble MVM, HttpPostedFileBase file) 
         {
             try
             {
@@ -87,18 +87,14 @@ namespace DariTn.web.Controllers
 
         // POST: Meuble/Edit/5
         [HttpPost]
-        public ActionResult Edit(Meuble MVM, HttpPostedFileBase Image) // FormCollection collection)
+        public ActionResult Edit(Meuble MVM ) // FormCollection collection)
         {
             try
             {
                 // TODO: Add update logic here
-                if (!string.IsNullOrEmpty(Image.FileName))
-                {
-                    MVM.Image = Image.FileName;
-                    var path = Path.Combine(Server.MapPath("~/Content/Upload/"), Image.FileName);
-                    Image.SaveAs(path);
-                }
+
                 Service.Update(MVM);
+              
                 Service.Commit();
                 return RedirectToAction("Index");
             }
