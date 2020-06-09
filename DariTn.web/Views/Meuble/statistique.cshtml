@@ -39,6 +39,14 @@
         var Decor = (int)ViewData["countC"];//retrive Data from ViewData or ViewBag
     }
 
+    @{
+
+
+        var Antique = (int)ViewData["countD"];//retrive Data from ViewData or ViewBag
+    }
+
+
+
 
 
 
@@ -53,11 +61,11 @@
                                 new Chart(document.getElementById("pie-chart"), {
                                     type: 'pie',
                                     data: {
-                                        labels: ["Beds", "Tables", "Decor"],
+                                        labels: ["Beds", "Tables", "Decor", "Antique"],
                                         datasets: [{
                                             label: "Prfil",
                                             backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#FE0224", "#02fef6", "#02fef6"],
-                                            data: [ @Beds , @Tables , @Decor]
+                                            data: [ @Beds , @Tables , @Decor , @Antique]
                                         }]
                                     },
                                     options: {

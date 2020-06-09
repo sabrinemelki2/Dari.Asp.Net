@@ -74,20 +74,13 @@ namespace DariTn.web.Controllers
         {
 
 
-            ViewBag.CategoryId = new SelectList(serviceCat.GetAll(), "CategoryMeubId", "Name");
 
-            if (id > 0)
-            {
-                ViewBag.Title = "Edit";
-                return View(Service.GetById(id));
-            }
-            ViewBag.Title = "Create";
-            return View();
+            return View(Service.GetById(id));
         }
 
         // POST: Meuble/Edit/5
         [HttpPost]
-        public ActionResult Edit(Meuble MVM ) // FormCollection collection)
+        public ActionResult Edit(int id, Meuble MVM ) // FormCollection collection)
         {
             try
             {
@@ -98,7 +91,7 @@ namespace DariTn.web.Controllers
                 Service.Commit();
                 return RedirectToAction("Index");
             }
-            catch
+            catch 
             {
                 return View();
             }
@@ -147,6 +140,7 @@ namespace DariTn.web.Controllers
             List<Meuble> p1 = new List<Meuble>();
             List<Meuble> p2 = new List<Meuble>();
             List<Meuble> p3 = new List<Meuble>();
+            List<Meuble> p4 = new List<Meuble>();
             foreach (var itemm in Service.GetAll().Where(e => e.CategoryMeubId == cc[0].CategoryMeubId))
             {
                 p1.Add(itemm);
@@ -159,12 +153,17 @@ namespace DariTn.web.Controllers
             {
                 p3.Add(itemm);
             }
+            foreach (var itemm in Service.GetAll().Where(e => e.CategoryMeubId == cc[3].CategoryMeubId))
+            {
+                p4.Add(itemm);
+            }
 
 
 
             ViewData["countA"] = p1.Count;
             ViewData["countB"] = p2.Count;
             ViewData["countC"] = p3.Count;
+            ViewData["countD"] = p4.Count;
 
 
 

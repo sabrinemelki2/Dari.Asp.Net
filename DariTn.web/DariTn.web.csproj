@@ -194,6 +194,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategorieMeubController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ListItemsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -355,6 +356,11 @@
     <Content Include="Views\Meuble\Details.cshtml" />
     <Content Include="Views\Meuble\Delete.cshtml" />
     <Content Include="Views\Meuble\statistique.cshtml" />
+    <Content Include="Views\CategorieMeub\Index.cshtml" />
+    <Content Include="Views\CategorieMeub\Create.cshtml" />
+    <Content Include="Views\CategorieMeub\Delete.cshtml" />
+    <Content Include="Views\CategorieMeub\Details.cshtml" />
+    <Content Include="Views\CategorieMeub\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
