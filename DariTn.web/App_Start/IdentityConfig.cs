@@ -18,7 +18,7 @@ namespace DariTn.web
     {
         public Task SendAsync(IdentityMessage message)
         {
-            // Plug in your email service here to send an email.
+            // Plug in your email service here to send an 
             return Task.FromResult(0);
         }
     }

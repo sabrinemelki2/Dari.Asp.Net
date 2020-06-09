@@ -87,7 +87,6 @@ namespace DariTn.web.Controllers
                 // TODO: Add update logic here
 
                 Service.Update(MVM);
-              
                 Service.Commit();
                 return RedirectToAction("Index");
             }
